@@ -19168,6 +19168,10 @@ var _CounterTemp = require('./CounterTemp');
 
 var _CounterTemp2 = _interopRequireDefault(_CounterTemp);
 
+var _Select = require('./Select');
+
+var _Select2 = _interopRequireDefault(_Select);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19190,10 +19194,25 @@ var Main = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
-                'Main Content',
-                _react2.default.createElement(_Counter2.default, { name: 'Hong' }),
-                _react2.default.createElement(_CounterTemp2.default, null)
+                { className: 'container' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-lg-6' },
+                        'Main Content'
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-lg-6' },
+                        _react2.default.createElement(_Select2.default, null)
+                    )
+                )
             );
         }
     }]);
@@ -19203,7 +19222,76 @@ var Main = function (_React$Component) {
 
 exports.default = Main;
 
-},{"./Counter":159,"./CounterTemp":160,"react":158}],162:[function(require,module,exports){
+},{"./Counter":159,"./CounterTemp":160,"./Select":162,"react":158}],162:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Select = function (_React$Component) {
+    _inherits(Select, _React$Component);
+
+    function Select() {
+        _classCallCheck(this, Select);
+
+        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Select).call(this));
+
+        _this.state = { selected: 'b' };
+        return _this;
+    }
+
+    _createClass(Select, [{
+        key: 'updateSelect',
+        value: function updateSelect(event) {
+            console.log(event);
+            this.setState = { selected: event.target.value };
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'select',
+                { value: this.state.selected, onChange: this.updateSelect.bind(this) },
+                _react2.default.createElement(
+                    'option',
+                    { value: 'a' },
+                    'Apple'
+                ),
+                _react2.default.createElement(
+                    'option',
+                    { value: 'b' },
+                    'Bird'
+                ),
+                _react2.default.createElement(
+                    'option',
+                    { value: 'c' },
+                    'Cat'
+                )
+            );
+        }
+    }]);
+
+    return Select;
+}(_react2.default.Component);
+
+exports.default = Select;
+
+},{"react":158}],163:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -19222,6 +19310,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _reactDom2.default.render(_react2.default.createElement(_Main2.default, null), document.getElementById('root'));
 
-},{"./Main":161,"react":158,"react-dom":29}]},{},[162]);
+},{"./Main":161,"react":158,"react-dom":29}]},{},[163]);
 
 //# sourceMappingURL=app.js.map
